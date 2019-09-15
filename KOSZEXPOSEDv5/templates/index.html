@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<title>Prudensbin</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://kit.fontawesome.com/301b488078.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWyCb1Xq7gDRWSWRnOAVF3VsBz9TQW-og"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="shortcut icon" type="image/png" href="{{url_for('static', filename='favicon.png')}}"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"/>
+
+<body>
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button">HOME</a>
+    <a href="#find" class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-search"></i> FIND BIN</a>
+    <a href="#add" class="w3-bar-item w3-button w3-hide-small"><i class="fas fa-plus"></i> ADD BIN</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">TOP
+    </a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#find" class="w3-bar-item w3-button" onclick="toggleFunction()">FIND BIN</a>
+    <a href="#add" class="w3-bar-item w3-button" onclick="toggleFunction()">ADD BIN</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button">TOP</a>
+  </div>
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">COMUNITY GARBAGE BIN DATABASE <span class="w3-hide-small">- PRUDENSBIN</span></span>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="find">
+  <h3 class="w3-center">Check where you can throw your trash away!</h3>
+  <br />
+  <div class="button_cont" id="demo" align="center"><a class="example_c" href="#find" rel="nofollow noopener">Find bin</a></div>
+<br /><br /><br />
+    <div id="hidden">
+      <div>
+        <div class="hidden map-overlay">
+          <div id="map"></div>
+        </div>
+    </div>
+  </div>
+
+<hr style="border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+
+<br />
+
+
+<div class="w3-row w3-center w3-dark-grey w3-padding-16" width="100%">
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">5+</span><br>
+    Users
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">thousands</span><br>
+    Yet to come
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">5+</span><br>
+    Bins
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">unlimited</span><br>
+    Potential
+  </div>
+</div>
+
+<br />
+
+<hr style="border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+
+
+
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64" id="add">
+  <h3 class="w3-center">ADD BIN</h3>
+  <p class="w3-center"><em>Here you can add your own garbage bins,<br> helping contribute to a cleaner environment and healthier planet.</em></p><br>
+
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div id="hidden1">
+    <div>
+      <div class="hidden1">
+      <div style="font-size: 1.5em">
+        <br />
+        <center>
+<form>
+    Type of the bin (can select multiple): <br/>
+    <fieldset id="checkboxes">
+      <input type="checkbox" name="C" value="P" > &nbsp;Paper <br/>
+      <input type="checkbox" name="C" value="S"> Glass <br/>
+      <input type="checkbox" name="C" value="T"> Plastic <br/>
+      <input type="checkbox" name="C" value="M"> Metal <br/>
+      <td style="display: inline-block"><input type="checkbox" name="C" value="E"> E-trash (not batteries) <br/>
+      <input type="checkbox" name="C" value="L"> Meds <br/>
+      <input type="checkbox" name="C" value="B"> Batteries <br/><br/>
+    </fieldset>
+    Give the bin a star rating (1 - 5): <br/>
+    <input type="number" name="star-rating" id="insr1" min=1 max=5> <br/><br/>
+    Write a review (optional): <br/>
+    <input type="text" name="review" id="inrv1" style="width: 300px; height: 100px;"> <br/>
+    <br />
+    <input class="example_e" type="button" value="Submit" id="addBtn1">
+</form>
+</center>
+      </div>
+  </div>
+  </div>
+</div>
+
+<br /><br />
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<hr style="border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+
+<br />
+
+
+<div class="w3-row w3-center w3-padding-16">
+  <h3>Which bins can you throw your trash into?</h3>
+  <div class="bins glass">
+    <span class="w3-xlarge bins">Glass</span><br>
+    <span class="glatxt">green</span>
+  </div>
+  <div class="bins paper">
+    <span class="w3-xlarge bins">Paper</span><br>
+    <span class="paptxt">blue</span>
+  </div>
+  <div class="bins plastic">
+    <span class="w3-xlarge bins">Plastic</span><br>
+    <span class="platxt">yellow</span>
+  </div>
+  <div class="bins metal">
+    <span class="w3-xlarge bins">Metal</span><br>
+    <span class="mettxt">red</span>
+  </div>
+  <div class="bins trash  ">
+    <span class="w3-xlarge bins">Trash</span><br>
+    <span class="tratxt">orange</span>
+  </div>
+</div>
+
+<br />
+
+<hr style="border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">Contact us</h3>
+  <p class="w3-center"><em>We'd love to hear your feedback!</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+      <img src="profile.png" class="w3-image w3-round" style="width:100%">
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Warsaw, PL<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: support@prudensbin.live<br>
+      </div>
+      <p>Please feel free to write us a message:</p>
+      <form action="action.php" target="_blank">
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Name" required name="fname">
+          </div>
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Email" required name="email">
+          </div>
+        </div>
+        <input class="w3-input w3-border" type="text" placeholder="Message" required name="mess">
+        <button class="w3-button w3-black w3-right w3-section" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// Modal Image Gallery
+document.getElementById("hidden").style.display = "none";
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+<script>
+  var findMeButton = $('#demo');
+// Check if the browser has support for the Geolocation API
+if (!navigator.geolocation) {
+
+  findMeButton.addClass("disabled");
+  $('.no-browser-support').addClass("visible");
+
+} else {
+
+
+  bintype_lookup = s => {
+    var lut = {P : 'papier', S : 'szkło', M : 'metal', E : 'elektronikę', L : 'przeterminowane leki', T : 'plastik', B : 'baterie'}
+    if(s.length == 0){
+      return '???'
+    }
+    if(s.length == 1){
+      return lut[s[0]]
+    }
+    var t = ''
+    for(var i = 0;i < s.length - 2;i++){
+      t += lut[s[i]] + ', ';
+    }
+    t += lut[s[s.length - 2]] + ' i ' + lut[s[s.length - 1]];
+    return t;
+  }
+  navigator.geolocation.getCurrentPosition(function(position) {
+
+    // Get the coordinates of the current possition.
+    lat = position.coords.latitude;
+    lng = position.coords.longitude;
+  });
+
+  $('#addBtn1').on('click', () => { //AddBtn1 handler
+    var chstr = '';
+    var a = $('input[name="C"]:checked');
+    for(var i = 0;i < a.length;i++){
+      chstr += a[i].value;
+    }
+    var sr = $("#insr1")[0].value;
+    if(sr == ''){
+      sr = 0;
+    }
+    var review = $("#inrv1")[0].value;
+    $.post('create', {lat: lat, lng: lng}, resp => {
+      console.log(resp)
+      $.post('update', {bin_id: resp.id, bintype: chstr, rating: sr});
+      $.post('add_review', {bin_id : resp.id, content: review})
+    });
+  });
+  findMeButton.on('click', function(e) {
+    document.getElementById("hidden").style.display = "block";
+    e.preventDefault();
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+      var map = new GMaps({
+        el: '#map',
+        lat: lat,
+        lng: lng
+      });
+      $.post('nearby', {lat: lat, lng: lng}, resp => {
+        for(var i = 0;i < resp.rows.length;i++){
+          var c = resp.rows[i];
+          var lng2 = c[1];
+          var lat2 = c[2];
+          var bintype = c[3];
+          var rating = c[4];
+          var bin_id = Number(c[0]);
+          map.addMarker({
+            lat: lat2,
+            lng: lng2,
+            infoWindow: {
+              content: 'Bin: '+'&#9733;'.repeat(rating)+'<br>Można tu wrzucać: '+bintype_lookup(bintype)
+            }
+          });
+        }
+      })
+
+    });
+
+  });
+
+}
+</script>
+</body>
+</html>

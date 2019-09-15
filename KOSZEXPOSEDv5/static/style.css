@@ -1,0 +1,175 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #492392;
+  height: 1.8;
+  scroll-behavior: smooth;
+}
+.container {
+  max-width: 980px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+#geocoding_form {
+  margin: 40px auto 40px;
+}
+
+.input-group {
+  margin-left: 4%;
+}
+
+.find-me.btn:focus {
+  border-color: transparent;
+  outline: 0;
+}
+
+.coordinates {
+  font-size: 18px;
+  opacity: 0;
+  margin-bottom: 40px;
+}
+
+.no-browser-support {
+  font-size: 18px;
+  opacity: 0;
+}
+
+.coordinates b:first-child {
+  margin-right: 15px;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.map-overlay {
+  max-width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  position: relative;
+  border-radius: 2px;
+}
+
+#map {
+  max-width: 550px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+  background-image: url("img.jpg");
+  min-height: 100%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+  background-image: url("/w3images/parallax2.jpg");
+  min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+  background-image: url("/w3images/parallax3.jpg");
+  min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
+.example_c {
+color: #494949 !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #ffffff;
+padding: 20px;
+border: 4px solid #494949 !important;
+display: inline-block;
+transition: all 0.4s ease 0s;
+}
+.example_c:hover {
+color: #ffffff !important;
+background: #f6b93b;
+border-color: #f6b93b !important;
+transition: all 0.4s ease 0s;
+}
+.example_d {
+color: #494949 !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #ffffff;
+padding: 20px;
+border: 4px solid #494949 !important;
+display: inline-block;
+transition: all 0.4s ease 0s;
+}
+.example_d:hover {
+color: #ffffff !important;
+background: #66CD00;
+border-color: #66CD00 !important;
+transition: all 0.4s ease 0s;
+}
+.example_e {
+color: #494949 !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #ffffff;
+padding: 20px;
+border: 4px solid #494949 !important;
+display: inline-block;
+transition: all 0.4s ease 0s;
+}
+.example_e:hover {
+color: #ffffff !important;
+background: #3399ff;
+border-color: #3399ff !important;
+transition: all 0.4s ease 0s;
+}
+
+.bins{
+  display: inline-block;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.glass:hover{
+  background-color: rgba(102, 205, 0, 0.6);
+}
+
+.paper:hover{
+  background-color: rgba(0, 46, 225, 0.6);
+}
+
+.plastic:hover{
+  background-color: rgba(240, 236, 0, 0.6);
+}
+
+.metal:hover{
+  background-color: rgba(217,0,0, 0.6);
+}
+
+.trash:hover{
+  background-color: rgba(186,106,2,0.6);
+}
