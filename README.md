@@ -1,4 +1,3 @@
 # Prudensbin
 
-Please use version 6 of Prudensbin.
-To start the app type 'flask run'
+Please use v6 on Github. Go to the main directory and set the "FLASK_APP" environment variable to "kosz.py". Our project is fully operational but needs to be executed via 'flask run'.
